@@ -1,73 +1,58 @@
-# React + TypeScript + Vite
+# Portafolio — Diego Ramírez
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Portfolio personal desarrollado con React 18, TypeScript, Vite, Tailwind CSS v4 y Framer Motion. Diseño dark/cinematic inspirado en Prisma, con animaciones scroll-driven y efecto dock en la navegación.
 
-Currently, two official plugins are available:
+🔗 **[portafolio-diegodev.vercel.app](https://portafolio-diegodev.vercel.app)**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+| Tecnología | Uso |
+|---|---|
+| React 18 + TypeScript | UI y componentes |
+| Vite | Bundler y dev server |
+| Tailwind CSS v4 | Estilos utilitarios |
+| Framer Motion | Animaciones y transiciones |
+| Lucide React | Iconos |
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Secciones
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- **Hero** — Video de fondo cinematográfico, nombre con animación pull-up y nav pill con efecto dock
+- **About** — Introducción con reveal de texto por caracteres vinculado al scroll
+- **Proyectos** — WebTure, HORUS, Landing Sylva, Social-Cue, Tibuchina Web
+- **Skills** — Frontend · Backend · Mobile · Tools & Ops
+- **Certificados** — Scrum Foundation Professional (SFPC™) · Python Essentials 1 (Cisco)
+- **Contacto** — CTA con email y GitHub
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Proyectos destacados
+
+| Proyecto | Stack | Links |
+|---|---|---|
+| [WebTure](https://github.com/Dieg0arc/WebTure) | Astro, GSAP, Tailwind | [Live](https://webture.vercel.app) |
+| [Landing Sylva](https://github.com/Dieg0arc/Landing-Sylva) | Astro, Scroll Animations | [Live](https://landing-sylva.vercel.app) |
+| [Social-Cue](https://github.com/Dieg0arc/Social-Cue) | Nuxt3, Go, MongoDB | — |
+| [HORUS](https://github.com/Dieg0arc/HORUS) | Python, Deep Learning | — |
+| [Tibuchina Web](https://github.com/Dieg0arc/Tibuchina-Web) | React, TypeScript | [Live](https://tibuchina.vercel.app) |
+
+---
+
+## Correr localmente
+
+```bash
+git clone https://github.com/Dieg0arc/Portafolio.git
+cd Portafolio
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Contacto
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+**Email:** ramirezosorios92@gmail.com  
+**GitHub:** [@Dieg0arc](https://github.com/Dieg0arc)
