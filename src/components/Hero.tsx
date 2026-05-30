@@ -260,19 +260,19 @@ export default function Hero() {
                 style={{
                   fontFamily: '"Bricolage Grotesque", sans-serif',
                   fontWeight: 800,
-                  fontSize: 'clamp(16vw, 20vw, 22vw)',
-                  lineHeight: 0.84,
-                  letterSpacing: '-0.07em',
+                  fontSize: 'clamp(60px, 17vw, 195px)',
+                  lineHeight: 0.88,
+                  letterSpacing: '-0.06em',
                   color: '#edeadb',
                   margin: 0,
                   padding: 0,
+                  whiteSpace: 'nowrap',
                 }}
               >
                 <div style={{ display: 'block', overflow: 'hidden' }}>
-                  <PullUpWord word="DIEGO" delay={0.1} />
-                </div>
-                <div style={{ display: 'block', overflow: 'hidden' }}>
-                  <PullUpWord word="RAMÍREZ" delay={0.22} />
+                  <PullUpWord word="Diego" delay={0.1} />
+                  {' '}
+                  <PullUpWord word="Dev" delay={0.2} />
                 </div>
               </h1>
             </div>
