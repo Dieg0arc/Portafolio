@@ -109,7 +109,20 @@ body {
   background-size: 28px 28px;
 }
 
-/* ── Responsive overrides ─────────────────────────── */
+/* ── Responsive overrides ─────────────────────────────
+   Ordenado de más ancho a más angosto: los breakpoints
+   más chicos van al final para ganar por orden de cascada
+   cuando varios @media coinciden a la vez.
+──────────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .projects-featured-grid { grid-template-columns: 1fr !important; }
+  .project-wide { flex-direction: column !important; }
+  .project-wide-media { min-height: 220px !important; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr) !important; }
+  .cert-grid { grid-template-columns: 1fr !important; }
+  .cert-grid > * { grid-column: span 1 !important; }
+}
 
 @media (max-width: 640px) {
   .nav-links { display: none !important; }
@@ -118,26 +131,11 @@ body {
   .hero-grid { grid-template-columns: 1fr !important; }
   .cert-grid { grid-template-columns: 1fr !important; }
   .cert-grid > * { grid-column: span 1 !important; }
-}
-
-@media (max-width: 768px) {
-  .projects-grid { grid-template-columns: 1fr !important; }
-  .project-featured { grid-column: span 1 !important; }
-  .skills-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 1.5rem !important; }
+  .skills-grid { grid-template-columns: 1fr !important; }
   .skill-group {
     border-right: none !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid #2c2924;
+    border-bottom: 1px solid #2c2924 !important;
   }
-  .skill-group:last-child { border-bottom: none; padding-bottom: 0; }
-  .stats-grid { grid-template-columns: repeat(2, 1fr) !important; }
-  .cert-grid { grid-template-columns: 1fr !important; }
-  .cert-grid > * { grid-column: span 1 !important; }
-}
-
-@media (max-width: 480px) {
-  .skills-grid { grid-template-columns: 1fr !important; }
+  .skill-group:last-child { border-bottom: none !important; }
 }
 

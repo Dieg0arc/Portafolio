@@ -1,6 +1,7 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { ArrowUpRight, GitFork } from 'lucide-react'
+import { EASE } from '../lib/constants'
 
 export default function Contact() {
   const ref = useRef<HTMLElement>(null)
@@ -37,7 +38,7 @@ export default function Contact() {
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.9, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.9, delay: 0.1, ease: EASE }}
             style={{
               fontFamily: '"Bricolage Grotesque", sans-serif',
               fontWeight: 700,
@@ -57,7 +58,7 @@ export default function Contact() {
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.8, delay: 0.35, ease: EASE }}
           style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', alignItems: 'center' }}
         >
           <a

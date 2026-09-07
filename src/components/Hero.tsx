@@ -1,18 +1,7 @@
 import { useRef, useState } from 'react'
 import { motion, useMotionValue, useTransform, useSpring, AnimatePresence } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
-
-// ── Data ──────────────────────────────────────────────────
-
-const navItems = [
-  { label: 'Sobre mí', href: '#about' },
-  { label: 'Proyectos', href: '#projects' },
-  { label: 'Skills', href: '#skills' },
-  { label: 'Logros', href: '#certificates' },
-  { label: 'Contacto', href: '#contact' },
-]
-
-const ease = [0.16, 1, 0.3, 1] as const
+import { EASE as ease, navItems } from '../lib/constants'
 
 // ── Dock nav ───────────────────────────────────────────────
 
@@ -157,17 +146,14 @@ export default function Hero() {
         {/* ── Background fallback color ─── */}
         <div style={{ position: 'absolute', inset: 0, backgroundColor: '#0a0906' }} />
 
-        {/* ── Background video ──────────────────────────
-            Reemplaza este src con tu propio video.
-            Formatos recomendados: .mp4 (H.264) o .webm
-            Puedes colocar el archivo en /public/hero.mp4
-            y cambiar el src a "/hero.mp4"
-        ──────────────────────────────────────────────── */}
+        {/* ── Background video ── decorativo, self-hosted en /public ── */}
         <video
           autoPlay
           loop
           muted
           playsInline
+          aria-hidden="true"
+          poster="/hero-poster.jpg"
           style={{
             position: 'absolute',
             inset: 0,
@@ -177,10 +163,7 @@ export default function Hero() {
             objectPosition: 'center',
           }}
         >
-          <source
-            src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260405_170732_8a9ccda6-5cff-4628-b164-059c500a2b41.mp4"
-            type="video/mp4"
-          />
+          <source src="/hero.mp4" type="video/mp4" />
         </video>
 
         {/* Subtle dot grid — fades toward edges */}

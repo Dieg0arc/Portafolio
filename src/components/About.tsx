@@ -1,6 +1,7 @@
 import { useRef } from 'react'
 import { motion, useScroll, useTransform, useInView } from 'framer-motion'
 import WordsPullUp from './WordsPullUp'
+import { EASE } from '../lib/constants'
 
 const ABOUT_TEXT = "Durante siete semestres he construido proyectos que van desde interfaces web con Astro y React hasta APIs de geolocalización en Python, aplicaciones Android en Kotlin y redes sociales académicas con Go y MongoDB. Me mueve la curiosidad de entender cómo funcionan las cosas y la satisfacción de construir algo que funcione bien y se vea bien."
 
@@ -75,7 +76,7 @@ export default function About() {
         <motion.p
           initial={{ opacity: 0, y: 8 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.6, ease: EASE }}
           style={{
             fontSize: '0.6875rem',
             letterSpacing: '0.14em',
@@ -127,7 +128,7 @@ export default function About() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.8, delay: 0.3, ease: EASE }}
           className="stats-grid"
           style={{
             display: 'grid',

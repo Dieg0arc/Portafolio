@@ -2,6 +2,7 @@ import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { ExternalLink, Award } from 'lucide-react'
 import WordsPullUp from './WordsPullUp'
+import { EASE } from '../lib/constants'
 
 // ── Actualiza estos datos con tus certificados reales ──────
 
@@ -198,7 +199,7 @@ export default function Certificates() {
         <motion.p
           initial={{ opacity: 0, y: 8 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.6, ease: EASE }}
           style={{
             fontSize: '0.6875rem',
             letterSpacing: '0.14em',

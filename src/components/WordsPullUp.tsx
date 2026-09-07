@@ -1,5 +1,6 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
+import { EASE } from '../lib/constants'
 
 interface WordsPullUpProps {
   text: string
@@ -15,7 +16,7 @@ export default function WordsPullUp({ text, className = '', style, delay = 0, as
   const words = text.split(' ')
 
   return (
-    <div ref={divRef} style={{ display: 'contents' }}>
+    <div ref={divRef}>
       <Tag className={className} style={{ display: 'block', ...style }}>
         {words.map((word, i) => (
           <span key={i} style={{ display: 'inline-block', overflow: 'hidden', verticalAlign: 'bottom' }}>
@@ -26,7 +27,7 @@ export default function WordsPullUp({ text, className = '', style, delay = 0, as
               transition={{
                 duration: 0.9,
                 delay: delay + i * 0.08,
-                ease: [0.16, 1, 0.3, 1],
+                ease: EASE,
               }}
             >
               {word}

@@ -1,13 +1,6 @@
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-
-const links = [
-  { label: 'Sobre mí', href: '#about' },
-  { label: 'Proyectos', href: '#projects' },
-  { label: 'Skills', href: '#skills' },
-  { label: 'Logros', href: '#certificates' },
-  { label: 'Contacto', href: '#contact' },
-]
+import { EASE, navItems as links } from '../lib/constants'
 
 export default function StickyNav() {
   const [visible, setVisible] = useState(false)
@@ -27,7 +20,7 @@ export default function StickyNav() {
           initial={{ opacity: 0, y: -12 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -12 }}
-          transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.35, ease: EASE }}
           style={{
             position: 'fixed',
             top: '1rem',

@@ -1,23 +1,57 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
+import {
+  siReact, siTypescript, siAstro, siVuedotjs, siNuxt, siTailwindcss, siThreedotjs, siGreensock, siFramer,
+  siPython, siOpenjdk, siGo, siNodedotjs,
+  siKotlin, siJetpackcompose, siAndroid,
+  siGit, siGithub, siDocker, siMongodb, siPostgresql, siLinux,
+} from 'simple-icons'
 import WordsPullUp from './WordsPullUp'
+import TechIcon from './TechIcon'
+import { EASE } from '../lib/constants'
 
 const skillGroups = [
   {
     category: 'Frontend',
-    items: ['React', 'TypeScript', 'Astro', 'Vue / Nuxt', 'Tailwind CSS', 'Three.js', 'GSAP', 'Framer Motion'],
+    items: [
+      { name: 'React', icon: siReact },
+      { name: 'TypeScript', icon: siTypescript },
+      { name: 'Astro', icon: siAstro },
+      { name: 'Vue.js', icon: siVuedotjs },
+      { name: 'Nuxt', icon: siNuxt },
+      { name: 'Tailwind CSS', icon: siTailwindcss },
+      { name: 'Three.js', icon: siThreedotjs },
+      { name: 'GSAP', icon: siGreensock },
+      { name: 'Framer Motion', icon: siFramer },
+    ],
   },
   {
     category: 'Backend',
-    items: ['Python', 'Java', 'Go (Echo)', 'Node.js', 'REST APIs', 'Microservices'],
+    items: [
+      { name: 'Python', icon: siPython },
+      { name: 'Java', icon: siOpenjdk },
+      { name: 'Go', icon: siGo },
+      { name: 'Node.js', icon: siNodedotjs },
+    ],
   },
   {
     category: 'Mobile',
-    items: ['Kotlin', 'Jetpack Compose', 'Android SDK', 'Navigation', 'Forms'],
+    items: [
+      { name: 'Kotlin', icon: siKotlin },
+      { name: 'Jetpack Compose', icon: siJetpackcompose },
+      { name: 'Android', icon: siAndroid },
+    ],
   },
   {
     category: 'Tools & Ops',
-    items: ['Git / GitHub', 'Docker', 'CI / CD', 'MongoDB', 'PostgreSQL', 'Linux'],
+    items: [
+      { name: 'Git', icon: siGit },
+      { name: 'GitHub', icon: siGithub },
+      { name: 'Docker', icon: siDocker },
+      { name: 'MongoDB', icon: siMongodb },
+      { name: 'PostgreSQL', icon: siPostgresql },
+      { name: 'Linux', icon: siLinux },
+    ],
   },
 ]
 
@@ -68,7 +102,7 @@ export default function Skills() {
           }}
         />
 
-        {/* Skills table — editorial layout */}
+        {/* Skills grid — icon tiles by category */}
         <div style={{
           border: '1px solid #2c2924',
           borderRadius: '1.25rem',
@@ -77,7 +111,7 @@ export default function Skills() {
         }}>
         <div className="skills-grid" style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(4, 1fr)',
+          gridTemplateColumns: 'repeat(2, 1fr)',
           gap: '0',
         }}>
           {skillGroups.map((group, gi) => (
@@ -92,8 +126,9 @@ export default function Skills() {
                 ease: [0.22, 1, 0.36, 1],
               }}
               style={{
-                padding: '1.75rem',
-                borderRight: gi < skillGroups.length - 1 ? '1px solid #2c2924' : 'none',
+                padding: '2rem',
+                borderRight: gi % 2 === 0 ? '1px solid #2c2924' : 'none',
+                borderBottom: gi < skillGroups.length - 2 ? '1px solid #2c2924' : 'none',
                 backgroundColor: '#181612',
               }}
             >
@@ -104,36 +139,44 @@ export default function Skills() {
                 letterSpacing: '0.12em',
                 textTransform: 'uppercase',
                 paddingBottom: '1rem',
-                marginBottom: '1rem',
+                marginBottom: '1.5rem',
                 borderBottom: '1px solid #2c2924',
               }}>
                 {group.category}
               </div>
 
-              {/* Items */}
-              <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.625rem' }}>
+              {/* Icon tiles */}
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '2.25rem 2rem' }}>
                 {group.items.map((item, ii) => (
-                  <motion.li
-                    key={item}
-                    initial={{ opacity: 0, x: -8 }}
-                    animate={isInView ? { opacity: 1, x: 0 } : {}}
+                  <motion.div
+                    key={item.name}
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : {}}
                     transition={{
                       duration: 0.5,
-                      delay: gi * 0.1 + ii * 0.05,
-                      ease: [0.16, 1, 0.3, 1],
+                      delay: gi * 0.1 + ii * 0.04,
+                      ease: EASE,
                     }}
                     style={{
-                      fontSize: 'clamp(0.875rem, 1.4vw, 1rem)',
-                      color: '#edeadb',
-                      fontFamily: '"Bricolage Grotesque", sans-serif',
-                      fontWeight: 400,
-                      letterSpacing: '-0.01em',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'center',
+                      gap: '0.75rem',
+                      width: '6.5rem',
                     }}
                   >
-                    {item}
-                  </motion.li>
+                    <TechIcon icon={item.icon} size={64} />
+                    <span style={{
+                      fontSize: '0.875rem',
+                      color: 'rgba(237,234,219,0.7)',
+                      textAlign: 'center',
+                      lineHeight: 1.25,
+                    }}>
+                      {item.name}
+                    </span>
+                  </motion.div>
                 ))}
-              </ul>
+              </div>
             </motion.div>
           ))}
         </div>
